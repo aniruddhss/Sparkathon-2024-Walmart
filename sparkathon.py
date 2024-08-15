@@ -4,10 +4,10 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 
+#FOR PROTOTYPE OR WORKING-DEMO
 
-# Mock data with weekly gaps between dates
 dates = pd.date_range(end=pd.Timestamp.today(), periods=4, freq='W-WED').strftime('%Y-%m-%d').tolist()
-
+#sample stores data
 stores_data = {
     'Date of Change': dates,
     'JioMart': [10, 12, 11, 13],
@@ -16,21 +16,20 @@ stores_data = {
     'Big Bazaar': [10, 11, 12, 14]
 }
 
+#sample products
 products = ['Coca-Cola', 'Sprite', 'Fanta']
 
-# User authentication details
+#sample users data
 users = {
     'store1': {'city': 'Bhopal', 'password': 'pass1'},
     'store2': {'city': 'Indore', 'password': 'pass2'},
 }
 
-# Function to authenticate user
 def authenticate(store_id, city, password):
     if store_id in users and users[store_id]['city'] == city and users[store_id]['password'] == password:
         return True
     return False
 
-# Login Page
 def login_page():
     st.title("Walmart Store Price Decider")
     st.subheader("Log-in")
@@ -47,7 +46,6 @@ def login_page():
         else:
             st.error("Invalid login credentials")
 
-# Product Selection Page
 def product_selection_page():
     st.title("Select Product")
 
@@ -57,11 +55,9 @@ def product_selection_page():
         st.session_state['product'] = product
         st.session_state['page'] = 'dashboard'
 
-# Dashboard Page
 def dashboard_page():
     st.title("Price Dashboard")
 
-    # Apply CSS to make the dashboard full-screen
     st.markdown(
         """
         <style>
@@ -80,15 +76,12 @@ def dashboard_page():
     product = st.session_state.get('product', 'Product 1')
     st.write(f"Product: {product}")
 
-    # Setting up a full-screen layout with three columns (2:2:1 ratio)
     col1, col2 = st.columns([3,1])
 
     with col1:
-        # Dropdown to select a store for the price history graph
         st.subheader("Price History")
         store = st.selectbox("Select a store", options=list(stores_data.keys())[1:])
 
-        # Creating a more bold and appealing graph using Plotly
         prices_df = pd.DataFrame(stores_data)
         prices_df.set_index('Date of Change', inplace=True)
         selected_store_prices = prices_df[store]
@@ -106,17 +99,13 @@ def dashboard_page():
 
 
     with col2:
-        # Price comparison table
         st.subheader("Last 4 Price Changes")
         prices_df = pd.DataFrame(stores_data)
         prices_df.set_index('Date of Change', inplace=True)
         st.dataframe(prices_df)
-
-        # Recommended price
-        current_prices = prices_df.iloc[-1]  # Using the latest prices of all stores
-        recommended_price = current_prices.mean()  # Recommended price is the average of current prices
-
+         
         st.subheader("Current Prices")
+        current_prices = prices_df.iloc[-1]  
         price_comparison = pd.DataFrame({
             'Store': current_prices.index,
             'Current Price': current_prices.values
@@ -126,14 +115,11 @@ def dashboard_page():
         # Recommended price
         min_price = current_prices.min()
         max_price = current_prices.max()
-        recommended_price = current_prices.mean()  # Recommended price is the average of current prices
+        recommended_price = current_prices.mean()  
 
         # st.subheader("Recommended Price")
-
-        # Create a gauge chart
         gauge_fig = go.Figure()
 
-        # Add zones with updated colors
         gauge_fig.add_trace(go.Indicator(
             mode="gauge+number",
             value=recommended_price,
@@ -144,8 +130,8 @@ def dashboard_page():
                 borderwidth=1,
                 bordercolor="black",
                 steps=[
-                    dict(range=[min_price, recommended_price], color="darkred"),  # Min to recommended in red
-                    dict(range=[recommended_price, max_price], color="darkgreen")  # Recommended to max in green
+                    dict(range=[min_price, recommended_price], color="darkred"),  
+                    dict(range=[recommended_price, max_price], color="darkgreen")  
                 ]
             ),
             number=dict(
@@ -157,7 +143,6 @@ def dashboard_page():
             )
         ))
 
-        # Update layout to make it more subtle
         gauge_fig.update_layout(
             paper_bgcolor="rgba(0,0,0,0)",  # Transparent background
             plot_bgcolor="rgba(0,0,0,0.5)",  # Semi-transparent dark background
@@ -168,14 +153,6 @@ def dashboard_page():
         st.plotly_chart(gauge_fig)
 
 
-    # with col3:
-
-        # # Recommended price
-        # recommended_price = selected_store_prices.iloc[-1]  # Using the latest price of the selected store
-        # st.subheader("Recommended Price")
-        # st.metric(label="Price", value=f"Rs. {recommended_price:.2f}")
-
-# Main function
 def main():
     if 'authenticated' not in st.session_state:
         st.session_state['authenticated'] = False
