@@ -41,6 +41,17 @@
             </ul>
         </li>
     </ul>
+    <h2>Tech Stack</h2>
+    <div class="tech-stack">
+        <ul>
+            <li><strong>Streamlit:</strong> For building the web interface and interactive dashboards.</li>
+            <li><strong>Python:</strong> Core programming language used for data scraping, analysis, and backend logic.</li>
+            <li><strong>Pandas:</strong> For data manipulation and analysis, essential for handling and processing large datasets.</li>
+            <li><strong>BeautifulSoup & Requests:</strong> Used for web scraping to gather pricing data from various superstores.</li>
+            <li><strong>Plotly:</strong> For creating interactive and visually appealing graphs, such as the price history and gauge charts.</li>
+            <li><strong>Heroku/AWS:</strong> (Optional) For deploying the app and ensuring it can scale with real-time data updates.</li>
+        </ul>
+    </div>
     <h2>Screenshots</h2>
     <div class="screenshot-grid">
         <div class="screenshot">
