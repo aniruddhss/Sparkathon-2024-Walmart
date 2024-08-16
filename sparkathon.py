@@ -96,7 +96,9 @@ def dashboard_page():
         fig.update_layout(yaxis=dict(range=[0, max(selected_store_prices) + 1]))
 
         st.plotly_chart(fig, use_container_width=True)
-
+        
+        
+        st.write("You can find more details of the project at: https://github.com/aniruddhss/Sparkathon-2024-Walmart")
 
     with col2:
         st.subheader("Last 4 Price Changes")
