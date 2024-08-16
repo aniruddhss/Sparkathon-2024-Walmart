@@ -55,28 +55,28 @@
     <h2>Screenshots</h2>
     <div class="screenshot-grid">
         <div class="screenshot">
-            <img src="screenshot1.png" alt="Screenshot 1">
-            <div class="screenshot-title">Dashboard Overview</div>
-        </div>
-        <div class="screenshot">
-            <img src="screenshot2.png" alt="Screenshot 2">
-            <div class="screenshot-title">Price Comparison</div>
-        </div>
-        <div class="screenshot">
-            <img src="screenshot3.png" alt="Screenshot 3">
-            <div class="screenshot-title">Price History Graph</div>
-        </div>
-        <div class="screenshot">
-            <img src="screenshot4.png" alt="Screenshot 4">
-            <div class="screenshot-title">Recommended Price Display</div>
-        </div>
-        <div class="screenshot">
-            <img src="screenshot5.png" alt="Screenshot 5">
+            <img src="https://github.com/aniruddhss/Sparkathon-2024-Walmart/blob/main/Login.png" alt="Screenshot 1">
             <div class="screenshot-title">Login Page</div>
         </div>
         <div class="screenshot">
-            <img src="screenshot6.png" alt="Screenshot 6">
-            <div class="screenshot-title">Product Selection</div>
+            <img src="https://github.com/aniruddhss/Sparkathon-2024-Walmart/blob/main/select%20product%20page.png" alt="Screenshot 2">
+            <div class="screenshot-title">Select Product Page</div>
+        </div>
+        <div class="screenshot">
+            <img src="https://github.com/aniruddhss/Sparkathon-2024-Walmart/blob/main/choose%20product.png" alt="Screenshot 3">
+            <div class="screenshot-title">Choose Product</div>
+        </div>
+        <div class="screenshot">
+            <img src="https://github.com/aniruddhss/Sparkathon-2024-Walmart/blob/main/price%20dashboard.png" alt="Screenshot 4">
+            <div class="screenshot-title">Price Dashboard</div>
+        </div>
+        <div class="screenshot">
+            <img src="https://github.com/aniruddhss/Sparkathon-2024-Walmart/blob/main/price%20history%20dataframe.png" alt="Screenshot 5">
+            <div class="screenshot-title">Price History Dataframe</div>
+        </div>
+        <div class="screenshot">
+            <img src="https://github.com/aniruddhss/Sparkathon-2024-Walmart/blob/main/recommended%20price%20gauge%20chart.png" alt="Screenshot 6">
+            <div class="screenshot-title">Recommended Price Gauge Chart</div>
         </div>
     </div>
     <h2>Future Enhancements</h2>
